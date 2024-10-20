@@ -1,0 +1,14 @@
+.small-devices {
+  display: block;
+}
+
+.overlay-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  transition: 0.5s ease-out;
+}
