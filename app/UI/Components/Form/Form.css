@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  margin: 120px 0;
+}
+
+.form input,
+textarea {
+  margin: 16px 0;
+  padding: 12px;
+}
+
+.form-title {
+  font-weight: bold;
+  opacity: 0.05;
+  font-size: 48px;
+  text-align: center;
+  width: 100%;
+}

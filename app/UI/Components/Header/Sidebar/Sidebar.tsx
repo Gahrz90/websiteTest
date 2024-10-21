@@ -19,7 +19,13 @@ interface SidebarProps {
 
 export default function Sidebar({ handleSidebar, isVisible }: SidebarProps) {
   return (
-    <ul className="sidebar-menu" style={{ right: !!isVisible ? "0" : "" }}>
+    <ul
+      className="sidebar-menu"
+      style={{
+        right: !!isVisible ? "0" : "-200px",
+        visibility: !!isVisible ? "visible" : "hidden",
+      }}
+    >
       <button onClick={handleSidebar}>
         <Image
           src={closeIcon}
@@ -28,31 +34,49 @@ export default function Sidebar({ handleSidebar, isVisible }: SidebarProps) {
           height={20}
         />
       </button>
-      <li>boards</li>
-      <li>accessories</li>
-      <li>blog</li>
-      <li>technology</li>
-      <li>team</li>
-      <li>dealers</li>
-      <div>
-        <Link href={"#"}>
+      <li className="self-start uppercase">boards</li>
+      <li className="self-start uppercase">accessories</li>
+      <li className="self-start uppercase">blog</li>
+      <li className="self-start uppercase">technology</li>
+      <li className="self-start uppercase">team</li>
+      <li className="self-start uppercase">dealers</li>
+      <div className="social-sidebar">
+        <a
+          href={"https://www.facebook.com"}
+          aria-label="facebook_link"
+          target="_self"
+          rel="noopener noreferrer"
+        >
           <Image
             src={facebookIcon}
             alt="facebook_icon"
             width={32}
             height={32}
+            aria-label="facebook_icon"
           />
-        </Link>
-        <Link href={"#"}>
+        </a>
+        <a
+          href={"https://www.instagram.com"}
+          aria-label="instagram_link"
+          target="_self"
+          rel="noopener noreferrer"
+        >
           <Image
             src={instagramIcon}
             alt="instagram_icon"
             width={32}
             height={32}
+            aria-label="instagram_icon"
           />
-        </Link>
+        </a>
         <Link href={"#"}>
-          <Image src={mailIcon} alt="contact_icon" width={32} height={32} />
+          <Image
+            src={mailIcon}
+            alt="contact_icon"
+            width={32}
+            height={32}
+            aria-label="email_icon"
+          />
         </Link>
       </div>
     </ul>

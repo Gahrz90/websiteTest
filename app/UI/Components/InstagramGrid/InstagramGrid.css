@@ -1,0 +1,13 @@
+.instagram-grid-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.instagram-grid-title {
+  font-weight: bold;
+  opacity: 0.05;
+  font-size: 48px;
+  text-align: center;
+  width: 100%;
+}

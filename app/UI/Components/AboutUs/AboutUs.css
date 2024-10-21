@@ -1,0 +1,16 @@
+.aboutus-container {
+  margin: 120px 0;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutus-title {
+  font-weight: bold;
+  opacity: 0.05;
+  font-size: 48px;
+  text-align: center;
+  width: 100%;
+}

@@ -11,11 +11,24 @@
 
 body {
   margin: 0;
-  padding: 32px;
+  padding: 0;
+  width: 100vw;
   min-height: 100vh;
-  position: relative;
+  background-image: url("/assets/images/headerBG.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  scroll-behaviour: smooth;
 }
 
 .desktop-devices {
   display: none;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+}
+
+.roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
 }
