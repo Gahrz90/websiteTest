@@ -1,5 +1,6 @@
 import AboutUs from "./UI/Components/AboutUs/AboutUs";
 import Carousel from "./UI/Components/Carousel/Carousel";
+import Footer from "./UI/Components/Footer/Footer";
 import Form from "./UI/Components/Form/Form";
 import Header from "./UI/Components/Header/Header";
 import InstagramGrid from "./UI/Components/InstagramGrid/InstagramGrid";
@@ -35,6 +36,7 @@ export default function Home() {
           <Form />
         </section>
       </main>
+      <Footer />
     </>
   );
 }

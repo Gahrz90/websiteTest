@@ -6,8 +6,8 @@ export default function Form() {
       <span className="form-title uppercase">contattaci</span>
       <input type="text" placeholder="Name" required />
       <input type="text" placeholder="Email" required />
-      <select>
-        <option value="" disabled selected>
+      <select value={"Empoli"}>
+        <option value="" disabled>
           Your city
         </option>
       </select>
