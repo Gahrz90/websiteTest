@@ -9,6 +9,52 @@
 textarea {
   margin: 16px 0;
   padding: 12px;
+  transition: 0.5s;
+  outline: none;
+  border: 1px solid #d3d3d3;
+}
+
+.form input:focus {
+  border: 1px solid #000;
+}
+
+select {
+  height: 50px;
+  margin: 16px 0;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("/assets/images/exportSurfer/arrow@2x.png");
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+}
+
+input[type="checkbox"] {
+  margin: 16px 20px 16px 5px;
+  transform: scale(1.5);
+}
+
+.form select:focus {
+  border: 1px solid #000;
+}
+
+.form input[type="date"] {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("/assets/images/exportSurfer/cal@2x.png");
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  background-size: 20px;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
 
 .form-title {
