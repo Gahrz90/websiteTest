@@ -23,6 +23,22 @@ export default function Form() {
     company: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  const validateForm = (): boolean => {
+    const newErrors: Partial<FormData> = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (
+      !formData.email.trim() ||
+      !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)
+    )
+      newErrors.email = "Valid email is required";
+    if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -33,6 +49,11 @@ export default function Form() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return; // Interrompe l'invio se ci sono errori
+    }
+
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -40,7 +61,6 @@ export default function Form() {
         body: JSON.stringify(formData),
       });
 
-      // Controlla che la risposta sia in formato JSON
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
         throw new Error("La risposta non è in formato JSON");
@@ -68,6 +88,8 @@ export default function Form() {
         onChange={handleChange}
         required
       />
+      {errors.name && <span className="error">{errors.name}</span>}
+
       <input
         type="text"
         name="email"
@@ -76,6 +98,8 @@ export default function Form() {
         onChange={handleChange}
         required
       />
+      {errors.email && <span className="error">{errors.email}</span>}
+
       <select name="city" value={formData.city} onChange={handleChange}>
         <option value="" disabled>
           Your city
@@ -83,6 +107,7 @@ export default function Form() {
         <option value="Empoli">Empoli</option>
         {/* Altre opzioni città */}
       </select>
+
       <input
         type="date"
         name="date"
@@ -103,6 +128,7 @@ export default function Form() {
         value={formData.company}
         onChange={handleChange}
       />
+
       <textarea
         name="message"
         placeholder="Your message"
@@ -110,6 +136,8 @@ export default function Form() {
         onChange={handleChange}
         required
       />
+      {errors.message && <span className="error">{errors.message}</span>}
+
       <div className="flex items-center w-full">
         <input type="checkbox" id="privacy_policy" required />
         <label htmlFor="privacy_policy">Accept privacy policy</label>
